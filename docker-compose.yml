@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: t4_admin
+      POSTGRES_PASSWORD: transport4
+      POSTGRES_DB: broncos_pizza_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: pizza-api
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://t4_admin:transport4@db:5432/broncos_pizza_db
+
+volumes:
+  pgdata:
