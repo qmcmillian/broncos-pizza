@@ -35,7 +35,13 @@ cd broncos-pizza-api
 npm install
 ```
 
-### 3. Start the Database Using Docker
+### 3. Configure Environment Variables
+
+```sh
+cp .env.example .env
+```
+
+### 4. Start the Database Using Docker
 
 ```sh
 npm run db:up
@@ -43,7 +49,7 @@ npm run db:up
 
 This will start a **PostgreSQL container** with a database named `broncos_pizza_db`.
 
-### 4. Initialize the Database
+### 5. Initialize the Database
 
 ```sh
 npm run db:init
@@ -51,7 +57,7 @@ npm run db:init
 
 This will create the necessary tables and insert predefined sizes, sauces, and toppings.
 
-### 5. Start the Server
+### 6. Start the Server
 
 ```sh
 npm start
