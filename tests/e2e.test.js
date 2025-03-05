@@ -9,8 +9,9 @@ let pizzaId2;
 
 describe("E2E Tests for Broncos Pizza API", () => {
   beforeAll(async () => {
-    console.log("Starting test suite");
-    server = app.listen(3001);
+    server = app.listen(0, () => {
+      const port = server.address().port;
+    });
     await initializeTables();
     await pool.query(
       "TRUNCATE TABLE pizza_toppings, pizzas RESTART IDENTITY CASCADE"
