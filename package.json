@@ -6,10 +6,10 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "db:init": "node db/initTables.js",
-    "db:seed": "node db/seed.js",
     "db:up": "docker-compose up -d",
     "db:down": "docker-compose down",
     "db:restart": "docker-compose restart",
+    "setup": "cp .env.example .env && npm run db:up && npm run db:init",
     "test": "jest"
   },
   "keywords": [],
